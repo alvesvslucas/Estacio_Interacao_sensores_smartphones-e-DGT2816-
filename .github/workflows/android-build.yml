@@ -14,8 +14,16 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
-      - name: Instalar SDK declarado no projeto
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+      - name: Verificar SDK previamente instalado no runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          sdk_root="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-}}"
+          if [[ -z "$sdk_root" ]]; then
+            echo "O runner precisa ter Android SDK configurado previamente." >&2
+            exit 1
+          fi
+          test -f "$sdk_root/platforms/android-36/android.jar"
+          test -x "$sdk_root/build-tools/36.0.0/aapt2"
       - name: Build e lint sem assinatura de release ou emulador
-        run: bash ./gradlew --no-daemon :app:assembleDebug :app:lintDebug
+        run: bash ./gradlew --no-daemon -Pandroid.builder.sdkDownload=false :app:assembleDebug :app:lintDebug
