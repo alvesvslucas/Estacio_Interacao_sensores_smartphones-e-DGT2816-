@@ -9,7 +9,6 @@ Este repositório contém o projeto desenvolvido para a **Missão Prática da di
 ## 📌 Informações Acadêmicas
 
 - **Aluno:** Lucas Alves Vieira da Silva
-- **Matrícula:** 202310363402
 - **Curso:** Análise e Desenvolvimento de Sistemas
 - **Disciplina:** Interação com Sensores de Smartphones e Wearables
 - **Turma:** DGT2816 - 9001
@@ -57,9 +56,23 @@ O aplicativo permite:
 
 ---
 
-## 📱 Execução do Aplicativo
+## Preparar e executar esta cópia
 
-O aplicativo foi executado e testado em **emulador Wear OS**, demonstrando corretamente:
+Abra a raiz no Android Studio e sincronize o Gradle. A configuração declara **Android Gradle Plugin 9.0.0**, wrapper **Gradle 9.1.0**, `compileSdk/targetSdk 36` e `minSdk 30`. Instale o SDK Android 36 e use um JDK compatível com esse plugin; a compatibilidade de fontes Java 11 não define o JDK de execução do Gradle.
+
+No Windows, a partir da raiz:
+
+```powershell
+git clone https://github.com/alvesvslucas/Estacio_Interacao_sensores_smartphones-e-DGT2816-.git
+cd Estacio_Interacao_sensores_smartphones-e-DGT2816-
+.\gradlew.bat :app:assembleDebug
+```
+
+No Android Studio, selecione um emulador Wear OS compatível e execute o módulo `app`. Verifique saída de áudio, recursos Bluetooth e disponibilidade do mecanismo TTS no dispositivo. O build e a execução não foram realizados nesta revisão documental.
+
+## 📱 Execução registrada na entrega
+
+O relato original da entrega informa execução em **emulador Wear OS**, com as seguintes evidências descritas:
 
 - Abertura da Activity principal;
 - Identificação dos dispositivos de áudio disponíveis;
@@ -82,4 +95,4 @@ A documentação completa da Missão Prática, incluindo:
 - Análise crítica;
 - Prints da implementação;
 
-está disponível no arquivo:
+deve ser consultada nos arquivos da entrega presentes no repositório.
